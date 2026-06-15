@@ -34,9 +34,14 @@ jobs:
         run: find . -name '*.ipynb' -type f -execdir jupyter nbconvert --template classic --to html {} \; -execdir rm {} \;
 
       - name: Push notebooks folder to the build branch
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: build
-          directory: notebook
-          force: true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan build-temp
+          git rm -rf .
+          cp -r notebook/* .
+          git add .
+          git commit -m "Build: Convert ipynb to html" --allow-empty || true
+          git push origin HEAD:build --force
+          git checkout main
+          
