@@ -4,7 +4,6 @@
 
 EmbedComp notebook is to validate the HF embedding model with your choice of dataset on various parameters - the notebook runs a full retrieval benchmark across multiple embedding models and renders an interactive Plotly dashboard covering latency, throughput, recall, and cosine quality — all in a single Jupyter notebook.
 
----
 
 ## Metrics
 
@@ -21,3 +20,8 @@ EmbedComp notebook is to validate the HF embedding model with your choice of dat
 | Cosine distribution | Similarity score spread across top-K hits | ⬆ Mean · ↔ narrow spread |
 
 
+## Author
+
+Built by [Sarav](https://github.com/AKSarav) · [middlewareinventory.com](https://middlewareinventory.com)
+
+*If EmbedComp helped you pick the right model, drop a ⭐ on the repo.*
